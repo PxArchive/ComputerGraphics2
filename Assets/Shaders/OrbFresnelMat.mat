@@ -39,11 +39,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _FresnelPower: 4.84
+    - _IntersectionPower: 8.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _StepValue: 0.58
     m_Colors:
     - _Color: {r: 0, g: 1, b: 0.14345217, a: 1}
+    - _EdgeColor: {r: 7.999999, g: 0, b: 6.040939, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4157297878312981389

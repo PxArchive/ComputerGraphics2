@@ -66,12 +66,21 @@ Material:
     - _FineStep: 5.76
     - _GradientScale: 1.67
     - _GradientSpeed: 0.3
+    - _IntersectionPower: 0.01
+    - _LineAmp: 0.1
+    - _LineCount: 5
+    - _LineFreq: 0.1
+    - _LineScrollSpeed: 0.1
+    - _LineThickness: 0.5
     - _Metallic: 0.75
+    - _OrbRadius: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SmoothnessMult: 6.77
     m_Colors:
     - _BaseColor: {r: 0.02336987, g: 0.4393531, b: 0, a: 1}
     - _Color: {r: 0, g: 1, b: 0.37279153, a: 1}
+    - _IntersectionColor: {r: 0, g: 8, b: 0.1190548, a: 1}
+    - _OrbPosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

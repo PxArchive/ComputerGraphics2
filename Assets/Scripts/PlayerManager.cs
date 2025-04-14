@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +8,7 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerManager : MonoBehaviour
 {
+    public float maxVelocity = 1f;
     public Vector2 inputDirection;
     public float walkSpeed = 1f;
     public float jumpStrength = 10f;
@@ -21,15 +24,22 @@ public class PlayerManager : MonoBehaviour
     private float orbScaleVelocity  = 0f;
     public float orbScaleSmoothTime = 0.2f;
 
+
+    //private float angleVelocity = 0f;
+    public float angleSmoothTime = 0.2f;
+    //private Vector2 targetInput;
+
     //float vignetteValue = 0f;
     //float vignetteTarget = 0f;
     //float vignetteVelocity = 0f;
     public float vignetteSmoothTime = 0.2f;
 
-    private float globalTValue = 0f;
+    public float globalTValue = 0f;
 
     private Rigidbody rb;
     private Transform orb;
+    private Collider orbCollider;
+    private List<GhostObject> ghostObjects = new List<GhostObject>();
     private Volume volume;
 
     Vignette vignette;
@@ -39,15 +49,22 @@ public class PlayerManager : MonoBehaviour
     private Vector3 vectorZERO = Vector3.zero;
     private Vector3 vectorONE = Vector3.one;
 
+    private Transform hatkidTransform;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         orb = GameObject.Find("Player_ORB").transform;
+        orbCollider = orb.GetComponent<Collider>();
         cineCam = FindFirstObjectByType<CinemachineCamera>();
         volume = GameObject.Find("VOLUME").GetComponent<Volume>();
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out dof);
+
+        hatkidTransform = GameObject.Find("HATKID").transform;
+
+        ghostObjects = FindObjectsByType<GhostObject>(FindObjectsSortMode.None).ToList();
 
         Application.targetFrameRate = 60;
         Screen.SetResolution(
@@ -84,6 +101,22 @@ public class PlayerManager : MonoBehaviour
         orb.transform.localScale = vectorONE * orbCurrentScale;
 
         globalTValue = Mathf.InverseLerp(minOrbScale, maxOrbScale, orbCurrentScale);
+        
+        //orbCollider.enabled = !Mathf.Approximately(globalTValue, 0f);
+        if (globalTValue > 0.9f)
+        {
+            foreach (GhostObject gh in ghostObjects)
+            {
+                gh.c.enabled = gh.isInverted == 0;
+            }
+        }
+        else if (globalTValue < 0.1f)
+        {
+            foreach (GhostObject gh in ghostObjects)
+            {
+                gh.c.enabled = gh.isInverted == 1;
+            }
+        }
 
         if (vignette && dof && cineCam)
         {
@@ -97,7 +130,23 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (hatkidTransform)
+        {
+            //if (inputDirection != Vector2.zero)
+            //{
+            //    targetInput = inputDirection;
+            //}
+
+            //Quaternion q = Quaternion.LookRotation(new Vector3(targetInput.x, 0f, targetInput.y));
+            
+            //float targetAngle = Mathf.SmoothDamp(hatkidTransform.rotation.eulerAngles.y, q.eulerAngles.y, ref angleVelocity, angleSmoothTime);
+            //hatkidTransform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            hatkidTransform.transform.LookAt(hatkidTransform.position + new Vector3(inputDirection.x, 0, inputDirection.y));
+            //hatkidTransform.transform.rotation = Quaternion.Euler(hatkidTransform.transform.rotation.x, hatkidTransform.transform.rotation.y + 180f, hatkidTransform.transform.rotation.z);
+        }
+
         rb.AddForce(new Vector3(inputDirection.x, 0f, inputDirection.y) * walkSpeed);
+        rb.maxLinearVelocity = maxVelocity;
         if (grounded && doJump)
         {
             doJump = false;
@@ -129,10 +178,10 @@ public class PlayerManager : MonoBehaviour
     {
         inputDirection = _input.Get<Vector2>();
 
-        if (!grounded)
-        {
-            inputDirection = vectorZERO;
-        }
+        //if (!grounded)
+        //{
+        //    inputDirection = vectorZERO;
+        //}
     }
 
     public void OnJump(InputValue _input)
@@ -148,6 +197,10 @@ public class PlayerManager : MonoBehaviour
         if (orbTimer <= 0)
         {
             orbTimer = totalOrbActiveTime;
+        }
+        else
+        {
+            orbTimer = 0.01f;
         }
     }
 

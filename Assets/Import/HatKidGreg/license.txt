@@ -1,0 +1,11 @@
+Model Information:
+* title:	HatKidGreg
+* source:	https://sketchfab.com/3d-models/hatkidgreg-a0c53aa3cb5b48758d2cd484cae49320
+* author:	Chronisgr2010offical (https://sketchfab.com/Chronisgr2010offical)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "HatKidGreg" (https://sketchfab.com/3d-models/hatkidgreg-a0c53aa3cb5b48758d2cd484cae49320) by Chronisgr2010offical (https://sketchfab.com/Chronisgr2010offical) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

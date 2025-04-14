@@ -64,6 +64,7 @@ Material:
     - _EmissiveStrength: 163.26
     - _FresnelPower: 1.18
     - _FresnelStep: 0.37
+    - _IntersectionPower: 19.4
     - _NoiseStrength: 70
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -80,6 +81,7 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0.6981132, b: 0.097915016, a: 1}
     - _FresnelColor: {r: 0, g: 0, b: 0, a: 0}
+    - _IntersectionColor: {r: 1.9320117, g: 12.724628, b: 2.4012635, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7868662577400682814
