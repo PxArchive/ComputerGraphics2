@@ -49,6 +49,8 @@ public class PlayerManager : MonoBehaviour
     private Vector3 vectorZERO = Vector3.zero;
     private Vector3 vectorONE = Vector3.one;
 
+    private Vector3 startingPosition;
+
     private Transform hatkidTransform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,6 +65,8 @@ public class PlayerManager : MonoBehaviour
         volume.profile.TryGet(out dof);
 
         hatkidTransform = GameObject.Find("HATKID").transform;
+
+        startingPosition = transform.position;
 
         ghostObjects = FindObjectsByType<GhostObject>(FindObjectsSortMode.None).ToList();
 
@@ -214,7 +218,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_input.isPressed)
         {
-            transform.position = new Vector3(0f, 0.5f, 0f);
+            transform.position = startingPosition;
         }
     }
 }

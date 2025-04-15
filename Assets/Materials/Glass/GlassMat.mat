@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3412635883544832029
+--- !u!114 &-1984578025645268774
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GhostObjectMat
-  m_Shader: {fileID: -6465566751694194690, guid: 3e9848596ab810843b1863a31284d505, type: 3}
+  m_Name: GlassMat
+  m_Shader: {fileID: -6465566751694194690, guid: 116fe2bc6b2067944a2cbee345894862, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -37,12 +37,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_b5a77c7e9b494d58b619cb3a1b21b6cf_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 64bc58dbcd8e35a42bde750549541014, type: 3}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 5c1106cb9f5123e4390765af922a9f89, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_efad22fed2b94b6fbc2a570fcb6a41ff_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: c2a217493622bb94db3f9a32baccc58e, type: 3}
+    - _RoughnessMap:
+        m_Texture: {fileID: 2800000, guid: 32633a92c91360b439b14c9c3c4db51d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 699f99a3ee75533458044c5b14ec39bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -59,29 +63,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CoarseScrollSpeed: -0.05
-    - _CoarseStep: 6.48
-    - _DustBrightness: 6
-    - _FineScollSpeed: -0.015
-    - _FineStep: 5.76
-    - _GradientScale: 1.67
-    - _GradientSpeed: 0.3
-    - _IntersectionPower: 0.01
-    - _IsInverted: 0
-    - _LineAmp: 0.13
-    - _LineCount: 5
-    - _LineFreq: 2.01
-    - _LineScrollSpeed: 0.1
-    - _LineThickness: 0.4
-    - _Metallic: 0.75
-    - _OrbRadius: 0.01
+    - _AmbientOcclusion: 1
+    - _Metallic: 1
+    - _NoiseScale: 0.51
+    - _OverallSmoothness: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SmoothnessMult: 6.77
+    - _SmoothnessMult: 4.26
+    - _TextureUVScale: 1
     m_Colors:
-    - _BaseColor: {r: 0.02336987, g: 0.4393531, b: 0, a: 1}
-    - _Color: {r: 0, g: 1, b: 0.37279153, a: 1}
-    - _IntersectionColor: {r: 0, g: 8, b: 0.1190548, a: 1}
-    - _OrbPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.27223712, g: 0.27223712, b: 0.27223712, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
