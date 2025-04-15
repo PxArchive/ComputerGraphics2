@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviour
         orb = GameObject.Find("Player_ORB").transform;
         orbCollider = orb.GetComponent<Collider>();
         cineCam = FindFirstObjectByType<CinemachineCamera>();
-        volume = GameObject.Find("VOLUME").GetComponent<Volume>();
+        volume = GetComponent<Volume>();
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out dof);
 
@@ -107,14 +107,20 @@ public class PlayerManager : MonoBehaviour
         {
             foreach (GhostObject gh in ghostObjects)
             {
-                gh.c.enabled = gh.isInverted == 0;
+                if (gh.c != null)
+                {
+                    gh.c.enabled = gh.isInverted == 0;
+                }
             }
         }
         else if (globalTValue < 0.1f)
         {
             foreach (GhostObject gh in ghostObjects)
             {
-                gh.c.enabled = gh.isInverted == 1;
+                if (gh.c != null)
+                {
+                    gh.c.enabled = gh.isInverted == 1;
+                }
             }
         }
 

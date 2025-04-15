@@ -27,7 +27,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -67,6 +67,7 @@ Material:
     - _GradientScale: 1.67
     - _GradientSpeed: 0.3
     - _IntersectionPower: 0.01
+    - _IsInverted: 0
     - _LineAmp: 0.1
     - _LineCount: 5
     - _LineFreq: 0.1

@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 8277137533485374849}
   - component: {fileID: 3425043079488739184}
   - component: {fileID: 4426246738691318540}
+  - component: {fileID: 7409709837985490409}
   m_Layer: 0
   m_Name: PlayerCapsule
   m_TagString: Untagged
@@ -229,6 +230,7 @@ MonoBehaviour:
   orbTimer: 0
   totalOrbActiveTime: 5
   orbScaleSmoothTime: 0.2
+  angleSmoothTime: 0.2
   vignetteSmoothTime: 0.3
   globalTValue: 0
 --- !u!114 &4426246738691318540
@@ -261,6 +263,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: 0
   m_Camera: {fileID: 0}
+--- !u!114 &7409709837985490409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321481616174620396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
 --- !u!1 &371944504538822490
 GameObject:
   m_ObjectHideFlags: 0
