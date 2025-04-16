@@ -277,6 +277,7 @@ Material:
     m_Floats:
     - _CoarseScrollSpeed: -0.05
     - _CoarseStep: 6.48
+    - _DitherMinDistnace: 5
     - _DustBrightness: 10
     - _FineScollSpeed: -0.015
     - _FineStep: 5.76
@@ -902,6 +903,7 @@ Material:
     m_Floats:
     - _CoarseScrollSpeed: -0.05
     - _CoarseStep: 6.5
+    - _DitherMinDistnace: 5
     - _DustBrightness: 6
     - _FineScollSpeed: -0.015
     - _FineStep: 5.75
@@ -1373,7 +1375,7 @@ PrefabInstance:
       objectReference: {fileID: 231601012}
     - target: {fileID: 6117214793470038782, guid: 2000b404cc217e844b1cc41146b421ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 6117214793470038782, guid: 2000b404cc217e844b1cc41146b421ce, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1611,7 +1613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2459722188404020739, guid: a6802a91bf0da92419f9c2a8a92da838, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2459722188404020739, guid: a6802a91bf0da92419f9c2a8a92da838, type: 3}
       propertyPath: m_LocalPosition.z

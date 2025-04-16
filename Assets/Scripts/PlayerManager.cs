@@ -53,6 +53,8 @@ public class PlayerManager : MonoBehaviour
 
     private Transform hatkidTransform;
 
+    private GameObject glowyEyes;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,6 +67,7 @@ public class PlayerManager : MonoBehaviour
         volume.profile.TryGet(out dof);
 
         hatkidTransform = GameObject.Find("HATKID").transform;
+        glowyEyes = GameObject.Find("GLOWY_EYES");
 
         startingPosition = transform.position;
 
@@ -107,7 +110,7 @@ public class PlayerManager : MonoBehaviour
         globalTValue = Mathf.InverseLerp(minOrbScale, maxOrbScale, orbCurrentScale);
         
         //orbCollider.enabled = !Mathf.Approximately(globalTValue, 0f);
-        if (globalTValue > 0.9f)
+        if (globalTValue > 0.99f)
         {
             foreach (GhostObject gh in ghostObjects)
             {
@@ -117,15 +120,20 @@ public class PlayerManager : MonoBehaviour
                 }
             }
         }
-        else if (globalTValue < 0.1f)
+        else if (globalTValue < 0.01f)
         {
             foreach (GhostObject gh in ghostObjects)
             {
                 if (gh.c != null)
                 {
                     gh.c.enabled = gh.isInverted == 1;
+                    glowyEyes.SetActive(false);
                 }
             }
+        }
+        else
+        {
+            glowyEyes.SetActive(true);
         }
 
         if (vignette && dof && cineCam)

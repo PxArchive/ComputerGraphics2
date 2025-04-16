@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PBRShaderGraphMat
-  m_Shader: {fileID: -6465566751694194690, guid: 99350cbd9720c0244a1208d7bba9674f, type: 3}
+  m_Name: ConeMat
+  m_Shader: {fileID: -6465566751694194690, guid: c719f441210d8604883e6072c3d6a852, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,26 +24,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metallic:
-        m_Texture: {fileID: 2800000, guid: c1e867bb3c1e0f34d9504ce450a78e3f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 89b53393f5e971642adecfb5a1007f7d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Rougness:
-        m_Texture: {fileID: 2800000, guid: e61277c2b0a2e5f41ba42e73e78e8cd3, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _baseMap:
-        m_Texture: {fileID: 2800000, guid: 8de57c0c584c8c847963437cc7d9a91e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -58,13 +38,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Brightness: 14
+    - _LerpMax: 1.19
+    - _LerpMin: -3.26
+    - _LerpMult: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 1
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0.09918165, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &921562922703932228
+--- !u!114 &8358103347081300259
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

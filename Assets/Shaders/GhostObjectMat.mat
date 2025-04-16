@@ -61,6 +61,7 @@ Material:
     m_Floats:
     - _CoarseScrollSpeed: -0.05
     - _CoarseStep: 6.48
+    - _DitherMinDistnace: 21.75
     - _DustBrightness: 6
     - _FineScollSpeed: -0.015
     - _FineStep: 5.76
