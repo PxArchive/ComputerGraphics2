@@ -46,9 +46,6 @@ public class PlayerManager : MonoBehaviour
     DepthOfField dof;
     CinemachineCamera cineCam;
 
-    private Vector3 vectorZERO = Vector3.zero;
-    private Vector3 vectorONE = Vector3.one;
-
     private Vector3 startingPosition;
 
     private Transform hatkidTransform;
@@ -88,28 +85,22 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += new Vector3(inputDirection.x, 0f, inputDirection.y) * walkSpeed;
-
         if (orbTimer > 0)
         {
             orbTimer -= Time.deltaTime;
-
             orbTargetScale = maxOrbScale;
-            //vignetteTarget = 0.45f;
         }
         else
         {
             orbTargetScale = minOrbScale;
-            //vignetteTarget = 0f;
         }
 
         orbCurrentScale = Mathf.SmoothDamp(orbCurrentScale, orbTargetScale, ref orbScaleVelocity, orbScaleSmoothTime);
 
-        orb.transform.localScale = vectorONE * orbCurrentScale;
+        orb.transform.localScale = Vector3.one * orbCurrentScale;
 
         globalTValue = Mathf.InverseLerp(minOrbScale, maxOrbScale, orbCurrentScale);
         
-        //orbCollider.enabled = !Mathf.Approximately(globalTValue, 0f);
         if (globalTValue > 0.99f)
         {
             foreach (GhostObject gh in ghostObjects)
@@ -138,10 +129,10 @@ public class PlayerManager : MonoBehaviour
 
         if (vignette && dof && cineCam)
         {
-            //vignetteValue = Mathf.SmoothDamp(vignetteValue, vignetteTarget, ref vignetteVelocity, vignetteSmoothTime);
             vignette.intensity.SetValue(new ClampedFloatParameter(Mathf.Lerp(0f, 0.25f, globalTValue), 0f, 1f, true));
             dof.focusDistance.SetValue(new ClampedFloatParameter(7, 0.1f, 1000f, true));
             dof.focalLength.SetValue(new ClampedFloatParameter(Mathf.Lerp(1f, 74f, globalTValue), 1f, 300f, true));
+            
             cineCam.Lens.FieldOfView = Mathf.Lerp(60f, 55f, globalTValue);
         }
     }
@@ -150,17 +141,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (hatkidTransform)
         {
-            //if (inputDirection != Vector2.zero)
-            //{
-            //    targetInput = inputDirection;
-            //}
-
-            //Quaternion q = Quaternion.LookRotation(new Vector3(targetInput.x, 0f, targetInput.y));
-            
-            //float targetAngle = Mathf.SmoothDamp(hatkidTransform.rotation.eulerAngles.y, q.eulerAngles.y, ref angleVelocity, angleSmoothTime);
-            //hatkidTransform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            hatkidTransform.transform.LookAt(hatkidTransform.position + new Vector3(inputDirection.x, 0, inputDirection.y));
-            //hatkidTransform.transform.rotation = Quaternion.Euler(hatkidTransform.transform.rotation.x, hatkidTransform.transform.rotation.y + 180f, hatkidTransform.transform.rotation.z);
+            hatkidTransform.transform.LookAt(hatkidTransform.position + new Vector3(inputDirection.x, 0, inputDirection.y));    
         }
 
         rb.AddForce(new Vector3(inputDirection.x, 0f, inputDirection.y) * walkSpeed);
@@ -195,11 +176,6 @@ public class PlayerManager : MonoBehaviour
     public void OnMove(InputValue _input)
     {
         inputDirection = _input.Get<Vector2>();
-
-        //if (!grounded)
-        //{
-        //    inputDirection = vectorZERO;
-        //}
     }
 
     public void OnJump(InputValue _input)
